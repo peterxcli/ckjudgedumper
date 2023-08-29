@@ -1,0 +1,132 @@
+<h2>Ballot Counter</h2>
+<h3>Description</h3>
+<div>
+<p>Taiwan had just hold the local government election that aims to decide the mayor, the councilor and the village chief of each city and village. The election was held in 26th November, 2022, starts from a.m. 8:00 to p.m. 4:00. After that, the ballots must be counted carefully, which usually takes quite a long time, please implement a program to help counting the ballots.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+The first line contains an integer N that indicates the number of candidates. Where 1 < N <= 20.
+The next line contains N candidates' names.
+The rest of lines, ended by EOF, contains a name of a candidate which represents a ballot that voted to the candidate. There will be at most 10000 lines.
+<p></p>
+<h3>Output</h3>
+The name of each candidate followed by his/her votes earned in the election, each candidate occupies an independent line. Finally, the last line contains the winner of the election. There is guaranteed to be only one winner.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include <&zwj;stdio.h>                                  
+#include <&zwj;string.h>                                                                                                                                                                          
+
+#define MAX_CAND_CNT 20
+#define MAX_NAME_LEN 32
+struct ballot_counter_s {
+    int count;
+    char name[MAX_NAME_LEN];
+} counter[MAX_CAND_CNT];
+int cand_cnt;
+
+void count(const char *name);
+const char *winner();
+
+int main()
+{
+    scanf("%d", &cand_cnt);
+    for (int i = 0; i <&zwj; cand_cnt; i++) {
+        scanf("%s", counter[i].name);
+        counter[i].count = 0;
+    }
+
+    char name[MAX_NAME_LEN];
+    while (scanf("%s", name) != EOF)
+        count(name);
+
+    for (int i = 0; i <&zwj; cand_cnt; i++)
+        printf("%s %d\n", counter[i].name, counter[i].count);
+
+    printf("%s\n", winner());
+
+    return 0;
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+2
+Jonathan Jesse 
+Jonathan
+Jesse
+Jesse
+Jesse
+Jesse
+Jesse
+Jesse
+Jonathan
+Jonathan
+Jonathan
+Jonathan
+Jesse
+Jesse
+Jesse
+Jonathan
+Jesse
+Jesse
+Jonathan
+Jesse
+Jonathan
+Jesse
+Jonathan
+Jonathan
+Jonathan
+Jesse
+Jesse
+
+</pre>
+<h4>Output</h4>
+<pre>
+Jonathan 11
+Jesse 15
+Jesse
+
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+3
+Alexander Bryan Victoria 
+Alexander
+Bryan
+Victoria
+Alexander
+Alexander
+Bryan
+Bryan
+Bryan
+Alexander
+Victoria
+Victoria
+Bryan
+Victoria
+Alexander
+Victoria
+Bryan
+Alexander
+Victoria
+Victoria
+Victoria
+
+</pre>
+<h4>Output</h4>
+<pre>
+Alexander 6
+Bryan 6
+Victoria 8
+Victoria
+
+</pre>
+</div>

@@ -1,0 +1,54 @@
+<h2>Dungeons & Dragons, Part III</h2>
+<h3>Description</h3>
+<div>
+<p>In the previous part, we have beat the dragon, and it is time to move on. In this part, we are about to travel through a desert.</p><p>In this part, only three dice, with the highest scores of them are 4 (d1), 6 (d2), and 8 (d3), respectively,  as well as three magic numbers will be used. The three magic numbers are defined as following:</p><pre><code>NUMBER_1 = 0x38E38E38E38E3800LLU
+NUMBER_2 = 0x2AAAAAAAAAAAAAAALLU
+NUMBER_3 = 0x1C71C71C71C71C71LLU</code></pre><p>In your turn, you have to roll three dice and combine the scores of them with three magic numbers:</p><pre><code>(d1 * NUMBER_1 + d2 * NUMBER_2 + d3 * NUMBER_3) mod 0x7CE66C50E2840000LLU</code></pre><p>Then you will get the steps you should take on your next move (Assume that we have such large map).</p>
+</div>
+<p></p>
+<h3>Input</h3>
+Three integers indicates the score of three dice (d1, d2, d3).
+<p></p>
+<h3>Output</h3>
+Steps the player should take.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+2 4 2
+</pre>
+<h4>Output</h4>
+<pre>
+6595658764946068362
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+4 3 6
+</pre>
+<h4>Output</h4>
+<pre>
+1918307262625188516
+</pre>
+</div>
+<div>
+<h3>Sample3</h3>
+<h4>Input</h4>
+<pre>
+1 4 4
+</pre>
+<h4>Output</h4>
+<pre>
+6595658764946068588
+</pre>
+</div>

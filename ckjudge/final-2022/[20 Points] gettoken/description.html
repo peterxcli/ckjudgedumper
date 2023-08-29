@@ -1,0 +1,130 @@
+<h2>[20 Points] gettoken</h2>
+<h3>Description</h3>
+<div>
+<p>Please write a <code>gettoken</code> function which can isolate sequential tokens in a null-terminated string. The first argument <code>str</code> is a pointer to char which will point to the string that we want to get tokens from. The second argument <code>sep</code> is a string of separator. The first time that <code>gettoken</code> is called, <code>str</code> should be specified; subsequent calls, wishing to obtain further tokens from the same string, should pass a NULL pointer instead.</p><p><strong>strtok, strtok_r, strsep is banned in this problem</strong></p><hr><p>請寫一個 <code>gettoken</code> 函式將一個 null-terminated 字串分割為 token。第一個參數 <code>str</code> 為一個指標，指向我們想要得到 token 的字串。第二個參數 <code>sep</code> 是一個字串，其中的字元為分割字元。<code>gettoken</code> 第一次被呼叫時需給定 <code>str</code>，其後的呼叫如果要繼續在同一個字串分割 token 需傳入 NULL。</p><p><strong>本題禁用 strtok, strtok_r, strsep</strong></p>
+</div>
+<p></p>
+<h3>Input</h3>
+The first line contains an integer N that indicates the number of lines, followed by N lines of text, each line will be less than 4000 character
+第一行為一數字 N 代表總共有幾行文字，接下來有 N 行文字，每行文字會小於 4000 個字元
+<p></p>
+<h3>Output</h3>
+Multiple tokens, each separated by a newline 
+多個 token，token 之間用換行分開
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include <&zwj;stdio.h>
+#include <&zwj;stdlib.h>
+
+char *strtok(char *s, const char *sep) {
+  printf("strtok banned\n");
+  exit(1);
+}
+char *strtok_r(char *str, const char *sep, char **lasts) {
+  printf("strtok_r banned\n");
+  exit(1);
+}
+
+char *strsep(char **stringp, const char *delim) {
+  printf("strsep banned\n");
+  exit(1);
+}
+char *gettoken(char *str, const char *sep);
+int main() {
+  char buffer[4096];
+  char *sep = " \t\n;,.?!";
+  char *word;
+  int N;
+  scanf("%d\n", &N);
+  for (int i = 0; i <&zwj; N; i++) {
+    fgets(buffer, 4095, stdin);
+    for (word = gettoken(buffer, sep); word != NULL;
+         word = gettoken(NULL, sep)) {
+      printf("%s\n", word);
+    }
+  }
+}
+
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+1
+C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do, it blows your whole leg off.
+
+</pre>
+<h4>Output</h4>
+<pre>
+C
+makes
+it
+easy
+to
+shoot
+yourself
+in
+the
+foot
+C++
+makes
+it
+harder
+but
+when
+you
+do
+it
+blows
+your
+whole
+leg
+off
+
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+2
+When I wrote this code, only God and I understood what I did. Now... only God knows.
+C programmers never die. They are just cast into void.
+
+</pre>
+<h4>Output</h4>
+<pre>
+When
+I
+wrote
+this
+code
+only
+God
+and
+I
+understood
+what
+I
+did
+Now
+only
+God
+knows
+C
+programmers
+never
+die
+They
+are
+just
+cast
+into
+void
+
+</pre>
+</div>

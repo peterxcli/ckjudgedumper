@@ -1,0 +1,61 @@
+<h2>Trick Or Treat</h2>
+<h3>Description</h3>
+<div>
+<p>萬聖節到了，麥克想要去社區中一條街上要糖果，但這條街的上的家庭們有一個奇怪的規定，就是當你連續要了兩家的糖果，這條街的人會覺得你很貪心，所以他們會收回你全部的糖果。為了得到最多的糖果，麥克想要寫一個程式幫他計算可以得到的最多的糖果數量。</p><p>他跟其他去過街上要糖果的同伴口中得知街上每一個家庭會給的糖果數量，並把他存在全域變數<code>array</code> 陣列。請完成函式 <code>maxChandy</code> 讓麥可去計算出可以拿到最多的糖果數量。</p><hr><p>Halloween is coming, Mike is looking forward to ask for candy on the street, but there is a strange rule formed by the families on this street: when you ask for candies from two consecutive house, the people in this street will think you are greedy, thus, they'll take all of your candies back. In order to get the most candies, Mike wants to write a program to help him calculate the maximum number of candies he can get.</p><p>He asked other friends who had been on the street to ask for candy, and learned the amount of candy that every family on the street would give, and stored it in the global variable <code>array</code>. Please complete the function <code>maxChandy</code> for Mike to calculate the maximum number of candies he can get.</p><p></p>
+</div>
+<p></p>
+<h3>Input</h3>
+array 陣列的長度 size。
+1 <= size <= 40
+1 <= array[i]  <= 8
+<p></p>
+<h3>Output</h3>
+請回傳最大可以得到的糖果數量。
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include<&zwj;stdio.h>
+#include<&zwj;stdlib.h>
+int array[1500];
+int maxChandy( int size) ;
+int main() {
+    int size = 0;
+    scanf("%d", &size);
+    for(int i = 0 ; i <&zwj; size; ++i) {
+        scanf("%d", &array[i]);
+    }
+    printf("%d\n", maxChandy( size));
+    return 0;
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+6
+6 3 8 8 2 8
+
+</pre>
+<h4>Output</h4>
+<pre>
+22
+
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+9
+2 8 2 8 2 4 6 6 7
+
+</pre>
+<h4>Output</h4>
+<pre>
+29
+
+</pre>
+</div>

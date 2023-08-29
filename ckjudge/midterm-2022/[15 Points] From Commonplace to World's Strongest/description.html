@@ -1,0 +1,73 @@
+<h2>[15 Points] From Commonplace to World's Strongest</h2>
+<h3>Description</h3>
+<div>
+<p>Hajime and his classmates were teleported to an unknown world by the wizards to help the people of the world defend themselves from threats from other races. There is magic in the world, and people around the world have different levels of magic skills. People with high magic skills are able to organize powerful magic in a relatively simple magic circle. Unfortunately, Hajime has a very low level of magic skill, which force him to build an extremly complex magic circle even for a simple magic.</p><p>There are five basic magic powers: <code>a</code>,&nbsp;<code>b</code>,&nbsp;<code>c</code>,&nbsp;<code>d</code>, and&nbsp;<code>e</code>. The basic magic could be combined together to build more advanced magic. The built magic could be combined once again for an even more advanced one.</p><p>The complexity of a magic could be determined by its level. The level of a magic is defined by increasing the maximum level of its source magic by 1. And the five basic magic powers have a level of 1. For example, suppose we have the following magic table:</p><pre><code>f(2)ab
+g(4)fcde</code></pre><p>Each line indicates the target magic, the number of its source magic, and the source magic. The above magic table indicates that magic <code>f</code> is built by magic <code>a</code> and&nbsp;<code>b</code>, and magic&nbsp;<code>g</code>&nbsp;is built by magic&nbsp;<code>f</code>,&nbsp;<code>c</code>,&nbsp;<code>d</code>&nbsp;and&nbsp;<code>e</code>. Since the magic&nbsp;<code>f</code> is built from basic magic power, which has level of 1, the magic&nbsp;<code>f</code>&nbsp;has level of 2. And since the source of magic&nbsp;<code>g</code>&nbsp;contains&nbsp;<code>f</code>&nbsp;which has level of 2, the level of magic&nbsp;<code>g</code>&nbsp;is 3.</p><p>Now, given a magic table and a target magic, please help Hajime calculate the level of the magic as well as how much basic magic power should be used to build the target magic.</p><hr><p>Hajime 和他的同學們被魔法師傳送到一個未知的世界，以保護該世界的人類免受其他種族的威脅。那個未知的世界有魔法，該世界的人都有不同級別的魔法技能。魔法技能高的人能夠在一個相對簡單的魔法陣中組織強大的魔法。可惜 Hajime 的魔法技能很低，即使是簡單的魔法，他也不得不構建一個極其複雜的魔法陣。</p><p>那個世界有五種基本的魔法元素：<code>a</code>、<code>b</code>、<code>c</code>、<code>d</code> 和 <code>e</code>。這些基礎魔法可以組合在一起，打造更高級的魔法。而這些組合出來的魔法可以再次組合來構建更高級的魔法。</p><p>一個魔法的複雜程度可以根據它的等級來決定。魔法的等級是其組成魔法的最大等級 + 1。並且五種基本魔法的等級為1。假設我們有如下的魔法表：</p><pre><code>f(2)ab
+g(4)fcde</code></pre><p>每一行表示目標魔法、組成魔法數量和組成魔法。上面的魔法表代表魔法 <code>f</code> 是由魔法 <code>a</code> 和 <code>b</code> 構成的，而魔法 <code>g</code> 是由魔法 <code>f</code>、<code>c</code>、<code>d</code> 和 <code>e</code> 構成的。由於魔法 <code>f</code> 是由等級為 1 的基礎魔法構成的，因此魔法 <code>f</code> 的等級為 2。而由於魔法 <code>g</code> 的組成魔法包含等級為 2 的 <code>f</code>，因此魔法 <code>g</code> 的等級是 3。</p><p>現在，給定一張魔法表和一個目標魔法，請幫助 Hajime 計算該目標魔法的等級以及構建目標魔法應該使用多少基本魔力。</p><p><img src="https://i.pinimg.com/originals/90/ac/55/90ac5552708b77662ecba016ead60e4d.gif"></p>
+</div>
+<p></p>
+<h3>Input</h3>
+The first line contains an integer N, which indicates the number of entries in the magic table.
+The following N lines are in the following format: M(n)m1m2m3...mn, which indicates the magic M is combined by n source magics, and the rest is the list of source magics.
+The last line is in the format: (n)m1m2m3...mn, which indicates the target magic that is combined by n source magic: m1, m2 ... mn, accordingly.
+
+Notice: The magic of the input magic table will not guarantee that the magic at the front will not use the magic at the back of the table.
+
+1 <= N <= 57
+The magic M may be an alphabet, either upper or lower case, or a digit. (a-z, A-Z, 0-9)
+The number n is in the range of 1 <= n <= 20.
+
+第一行包含一個整數 N，表示魔術表中的共有幾種魔法。
+接下來N行的格式如下：M(n)m1m2m3...mn，表示魔法 M 由 n 個魔法組合而成，其餘為組成魔法列表。
+最後一行的格式為：(n)m1m2m3...mn，表示目標魔法是由 n 個魔法：m1，m2...mn 組合而成的。
+
+注意：輸入魔法表中的魔法不保證前面的魔法不會使用後面的魔法。
+
+1 <= N <= 57
+M 有可能是一個大寫或小寫的字母，也可以是一個數字。 (a-z, A-Z, 0-9)
+數字 n 的範圍為1 <= n <= 20。
+<p></p>
+<h3>Output</h3>
+Two integers within the same line indicate the level of the target magic and the number of basic magic powers that should be used.
+
+同一行中的兩個整數表示目標魔法的等級和應該使用的基本魔力的數量。
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+3
+f(1)d
+g(4)cdcd
+h(4)dedc
+(6)bcdfgh
+</pre>
+<h4>Output</h4>
+<pre>
+3 12
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+5
+f(1)d
+j(1)g
+g(2)dc
+h(3)aaa
+k(5)aahcg
+(8)acdefhjk
+</pre>
+<h4>Output</h4>
+<pre>
+4 18
+</pre>
+</div>

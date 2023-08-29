@@ -1,0 +1,41 @@
+<h2>Calculating EAN check digit</h2>
+<h3>Description</h3>
+<div>
+<p>European countries use a 12-digit code called European Article Number (EAN) for each product. Each EAN ends with a check digit, which is calculated by the following rules:</p><p></p><ol><li><p>Sum up the second, fourth, sixth, eighth, tenth, and twelfth digits, and put the result in <code>a</code>.</p></li><li><p>Sum up the first, third, fifth, seventh, ninth, and eleventh digits, and put the result in <code>b</code>.</p></li><li><p>Multiply <code>a</code> by 3 and add it to <code>b</code>, and put the result in <code>x</code>.</p></li><li><p>Subtract 1 from <code>x</code>, and put the result in <code>y</code>.</p></li><li><p>Compute the remainder of <code>y</code> divided by 10, and put the result in <code>z</code>.</p></li><li><p>Subtract <code>z</code> from 9.</p></li></ol><p></p><p>Write a program that reads the first 12 digits of an EAN, and then displays the calculated check digit.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+A number with 12 digits.
+<p></p>
+<h3>Output</h3>
+An 1-digit check digit.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+452167458643
+</pre>
+<h4>Output</h4>
+<pre>
+1
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+158245984678
+</pre>
+<h4>Output</h4>
+<pre>
+5
+</pre>
+</div>

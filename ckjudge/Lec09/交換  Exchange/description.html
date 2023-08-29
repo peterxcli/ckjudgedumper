@@ -1,0 +1,82 @@
+<h2>交換  Exchange</h2>
+<h3>Description</h3>
+<div>
+<p>給定各有 N 個正整數的兩序列 A, B ，請回傳最少進行以下操作幾次後，滿足兩序列的相同索引值，A 的元素會大於等於 B 的元素以及最終的 A 序列。</p><ul><li><p>對於索引值 i (1 ≦ i ≦ N)，將 Ai 與 Bi 元素互換</p></li></ul><p>更系統的說，請回傳最少需經過幾次以上操作後，滿足對於所有 i (1 ≦ i ≦ N)， 使得 A_i ≥ B_i，以及完成所有操作後的 A。</p><p></p><hr><p></p><p>Given two sequences A, B with N positive integers each, return the sequence A and B that satisfies the same index value of both sequences at least a few times, and the elements of A will be larger than the elements of B and the final A sequence.</p><ul><li><p>For the index value i (0&lt;=i&lt;N), swap the elements of Ai and Bi</p></li></ul><p>More systematically, please return A after at least a few operations to satisfy for all i (1 ≦ i ≦ N), so that A<em>i ≥ B</em>i, and after completing all operations.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+第一行有一個正整數 N（1 ≦ N ≦ 10^5），代表序列 A, B 有幾個正整數。
+
+第二行有 N 個正整數 A_1、A_2...A_N，代表序列 A 的元素。（對所有 1 ≦ i ≦ N，1 ≦ A_i ≦ 10^9）
+
+第三行有 N 個正整數 B_1、B_2...B_N，代表序列 B 的元素。（對所有 1 ≦ i ≦ N，1 ≦ B_i ≦ 10^9）
+
+The first line has a positive integer N (1 ≦ N ≦ 10^5), representing the sequence A, B has several positive integers.
+
+The second row has N positive integers A_1, A_2.... .A_N, representing the elements of the sequence A. (for all 1 ≦ i ≦ N, 1 ≦ A_i ≦ 10^9)
+
+The third row has N positive integers B_1, B_2.... .B_N, representing the elements of sequence B. (for all 1 ≦ i ≦ N, 1 ≦ B_i ≦ 10^9)
+
+<p></p>
+<h3>Output</h3>
+第一行有一個正整數 S ，代表最找需要幾次操作。
+第二行有 N 個正整數，代表操作後最終的 A 序列。
+
+The first row has a positive integer S, which represents the number of operations needed to find the most.
+The second row has N positive integers, which represent the final A sequence after the operation.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include<&zwj;stdio.h>
+int N;
+
+void solve(int *A, int *B, int *op_cnt);
+
+int main(){
+    int A[1<&zwj;<&zwj;17] = {0};
+    int B[1<&zwj;<&zwj;17] = {0};
+    int op_cnt = 0;
+
+    scanf("%d", &N);
+    for(int i = 0; i<&zwj;N; i++)
+        scanf("%d", &A[i]);
+    for(int i = 0; i<&zwj;N; i++)
+        scanf("%d", &B[i]);
+
+    solve(A, B, &op_cnt);
+    printf("%d\n", op_cnt);
+    for(int i = 0; i<&zwj;N; i++)
+        printf("%d ", A[i]);
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+3
+9 2 4
+7 10 1
+</pre>
+<h4>Output</h4>
+<pre>
+1
+9 10 4 
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+10
+9 6 10 2 6 6 6 7 7 6
+3 6 8 7 7 3 5 8 1 8
+</pre>
+<h4>Output</h4>
+<pre>
+4
+9 6 10 7 7 6 6 8 7 8 
+</pre>
+</div>

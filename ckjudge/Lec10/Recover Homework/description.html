@@ -1,0 +1,60 @@
+<h2>Recover Homework</h2>
+<h3>Description</h3>
+<div>
+<p>It’s no secret that how annoying the cat is.<br>One day, Amy just forgot to turn off her computer after she finished her homework, which gave her pet cat an opportunity to ruin her homework.</p><p>We have already known that a valid homework should fulfill following restrictions:</p><ul><li><p>Each word contains only alphabets, that is <code>a-z</code> and <code>A-Z</code>.</p></li><li><p>Only four punctuations, <code>.</code>, <code>,</code>, <code>!</code> and <code>?</code> may appear right after a word and should not appear alone.</p></li><li><p>The length of each word (including punctuation) should be with in range <code>1 ~ 21</code>.</p></li><li><p>The words are seperated by a whitespace.</p></li></ul><p>Any pattern that violates above restrictions is produced by Amy’s pet cat, which should be removed. </p><p>Please implement a program to help Amy safe her homework.</p><p></p><hr><p></p><p>眾所皆知，貓咪是機車的生物。<br>Amy 寫完作業後電腦忘記關，一回過神，發現在鍵盤上面踏踏的貓咪。</p><p>一篇正常的作業內會有以下的特徵：</p><ul><li><p>詞彙由 <code>a-z</code> <code>A-Z</code> 所組成</p></li><li><p>正常文章中會出現 <code>.</code> <code>,</code> <code>!</code> <code>?</code> 四種標點符號，位於詞彙的最後方，且不該單獨出現</p></li><li><p>每個詞彙的長度介於 <code>1 ~ 21</code> 個字元之間 (長度含標點符號)</p></li><li><p>每個詞彙由一個空白隔開</p></li></ul><p>只要不符合上方要求，都是貓咪新增的產物，需要被刪除。<br>請你寫一份程式碼，幫助 Amy 復原她的作業</p>
+</div>
+<p></p>
+<h3>Input</h3>
+A string with length 1 ~ 4096 .
+<p></p>
+<h3>Output</h3>
+The recovered homework.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include <&zwj;stdio.h>
+#include <&zwj;string.h>
+#include <&zwj;ctype.h>
+
+#define MAX_LEN 4096
+
+void recovery(char *homework);
+
+int main () {
+    char homework[MAX_LEN + 1];
+    
+    // Get the homework content.
+    fgets(homework, MAX_LEN , stdin);
+    recovery(homework);
+
+    // Print the recovered homework.
+    fputs(homework, stdout);
+
+    return 0;
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+Hello jahshd@ World.
+</pre>
+<h4>Output</h4>
+<pre>
+Hello World.
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+Umm, C is the asdfasdfae@ best !!!@@@ujdjdasfasdfasdfas programming language?
+</pre>
+<h4>Output</h4>
+<pre>
+Umm, C is the best programming language?
+</pre>
+</div>

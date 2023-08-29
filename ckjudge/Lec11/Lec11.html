@@ -1,0 +1,311 @@
+<h1>Lec11</h1>
+<h2>Ballot Counter</h2>
+<h3>Description</h3>
+<div>
+<p>Taiwan had just hold the local government election that aims to decide the mayor, the councilor and the village chief of each city and village. The election was held in 26th November, 2022, starts from a.m. 8:00 to p.m. 4:00. After that, the ballots must be counted carefully, which usually takes quite a long time, please implement a program to help counting the ballots.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+The first line contains an integer N that indicates the number of candidates. Where 1 < N <= 20.
+The next line contains N candidates' names.
+The rest of lines, ended by EOF, contains a name of a candidate which represents a ballot that voted to the candidate. There will be at most 10000 lines.
+<p></p>
+<h3>Output</h3>
+The name of each candidate followed by his/her votes earned in the election, each candidate occupies an independent line. Finally, the last line contains the winner of the election. There is guaranteed to be only one winner.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include <&zwj;stdio.h>                                  
+#include <&zwj;string.h>                                                                                                                                                                          
+
+#define MAX_CAND_CNT 20
+#define MAX_NAME_LEN 32
+struct ballot_counter_s {
+    int count;
+    char name[MAX_NAME_LEN];
+} counter[MAX_CAND_CNT];
+int cand_cnt;
+
+void count(const char *name);
+const char *winner();
+
+int main()
+{
+    scanf("%d", &cand_cnt);
+    for (int i = 0; i <&zwj; cand_cnt; i++) {
+        scanf("%s", counter[i].name);
+        counter[i].count = 0;
+    }
+
+    char name[MAX_NAME_LEN];
+    while (scanf("%s", name) != EOF)
+        count(name);
+
+    for (int i = 0; i <&zwj; cand_cnt; i++)
+        printf("%s %d\n", counter[i].name, counter[i].count);
+
+    printf("%s\n", winner());
+
+    return 0;
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+2
+Jonathan Jesse 
+Jonathan
+Jesse
+Jesse
+Jesse
+Jesse
+Jesse
+Jesse
+Jonathan
+Jonathan
+Jonathan
+Jonathan
+Jesse
+Jesse
+Jesse
+Jonathan
+Jesse
+Jesse
+Jonathan
+Jesse
+Jonathan
+Jesse
+Jonathan
+Jonathan
+Jonathan
+Jesse
+Jesse
+
+</pre>
+<h4>Output</h4>
+<pre>
+Jonathan 11
+Jesse 15
+Jesse
+
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+3
+Alexander Bryan Victoria 
+Alexander
+Bryan
+Victoria
+Alexander
+Alexander
+Bryan
+Bryan
+Bryan
+Alexander
+Victoria
+Victoria
+Bryan
+Victoria
+Alexander
+Victoria
+Bryan
+Alexander
+Victoria
+Victoria
+Victoria
+
+</pre>
+<h4>Output</h4>
+<pre>
+Alexander 6
+Bryan 6
+Victoria 8
+Victoria
+
+</pre>
+</div>
+<h2>LEVEL5 -judgelight-</h2>
+<h3>Description</h3>
+<div>
+<p>Given an array of <code>struct ESPer</code> which contains <code>level</code> and <code>name</code>,</p><p>please sort this array in ascending order by level.</p><p>hint: You can use C standard library's <code>qsort</code> function:</p><p></p><p>學園都市是個進行超能力開發的機關，會定期對學生進行能力檢測</p><p>他們使用的資料結構包含兩個欄位：<code>level</code> 和 <code>name</code></p><p>請你寫一個 function 來對包含這個 struct 的陣列做排序</p><p>hint: 你可以使用內建的 <code>qsort</code></p><p><a rel="noopener noreferrer nofollow" href="https://youtu.be/EGmLt7mYSo4">https://youtu.be/EGmLt7mYSo4</a></p>
+</div>
+<p></p>
+<h3>Input</h3>
+An array of "struct ESPer", array length
+<p></p>
+<h3>Output</h3>
+sort the array in ascending order by level.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include <&zwj;stdio.h>
+#include <&zwj;stdlib.h>
+
+struct ESPer {
+    char name[64];
+    int level;
+};
+
+int cmp(const void *a, const void *b);
+void sort_level(struct ESPer *arr, int length);
+
+int main()
+{
+    int n;
+    struct ESPer tokiwadai[100];
+
+    scanf("%d", &n);
+    for(int i = 0; i <&zwj; n; ++i) {
+        scanf("%d %s", &(tokiwadai[i].level), tokiwadai[i].name);
+    }
+
+    sort_level(tokiwadai, n);
+
+    for(int i = 0;i <&zwj; n;++i) {
+        printf("%d %s\n", tokiwadai[i].level, tokiwadai[i].name);
+    }
+
+    return 0;
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+5
+6 NanjoYoshino
+5 MisakaMikoto
+0 SatenRuiko
+1 UiharuKazari
+4 ShiraiKuroko
+
+</pre>
+<h4>Output</h4>
+<pre>
+0 SatenRuiko
+1 UiharuKazari
+4 ShiraiKuroko
+5 MisakaMikoto
+6 NanjoYoshino
+
+</pre>
+</div>
+<h2>Matrix Addition and Multiplication</h2>
+<h3>Description</h3>
+<div>
+<p>Write a program that implements matrix addition and multiplication of two matrices.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+The input contains three parts. The first and second part represent the information of the first matrix and the second matrix respectively. The first line of each part contains row and column number of the matrix, and the following line is an array of integers which represent the matrix itself. The second part is a character which represents the operation of the matrix.
+<p></p>
+<h3>Output</h3>
+The content of the result matrix. Each element is followed by a space character.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include <&zwj;stdio.h>
+#define SIZE 50
+
+struct mat {
+    int row;
+    int col;
+    int value[SIZE][SIZE];
+};
+
+void scan_mat(struct mat *);
+void print_mat(const struct mat *);
+void add_mat(const struct mat *, const struct mat *, struct mat *);
+void mul_mat(const struct mat *, const struct mat *, struct mat *);
+
+int main(void) {
+    struct mat m1, m2, result;
+    char op;
+    scan_mat(&m1);
+    scanf(" %c", &op);
+    scan_mat(&m2);
+    switch (op) {
+        case '+':
+            add_mat(&m1, &m2, &result);
+            break;
+        case '*':
+            mul_mat(&m1, &m2, &result);
+            break;
+    }
+    print_mat(&result);
+    return 0;
+}
+
+void scan_mat(struct mat *m_p) {
+    scanf("%d %d", &m_p->row, &m_p->col);
+    for (int i = 0; i <&zwj; m_p->row; ++i) {
+        for (int j = 0; j <&zwj; m_p->col; ++j) {
+            scanf("%d", &m_p->value[i][j]);
+        }
+    }
+}
+
+void print_mat(const struct mat *m_p){
+    for (int i = 0; i <&zwj; m_p->row; ++i) {
+        for (int j = 0; j <&zwj; m_p->col; ++j) {
+            printf("%d ", m_p->value[i][j]);
+            if (j == m_p->col - 1) {
+                printf("\n");
+            }
+        }
+    }
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+2 3
+3 2 6
+2 4 5
++
+2 3
+4 5 6
+3 1 4
+
+</pre>
+<h4>Output</h4>
+<pre>
+7 7 12 
+5 5 9 
+
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+2 2
+1 2
+3 4
+*
+2 2
+5 6
+7 8
+
+</pre>
+<h4>Output</h4>
+<pre>
+19 22 
+43 50 
+
+</pre>
+</div>

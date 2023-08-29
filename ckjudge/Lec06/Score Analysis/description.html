@@ -1,0 +1,71 @@
+<h2>Score Analysis</h2>
+<h3>Description</h3>
+<div>
+<p>After the midterm exam, TAs want to analyze the number of students lying in different intervals. An interval is denoted as <code>[B, A]</code>, TAs want to find out the number of students whose score is <strong>lower than </strong><code>B</code> (<code>score &lt; B</code>) , the number of students whose score is <strong>grater than or equal to </strong><code>B</code><strong> but lower than </strong><code>A</code> (<code>B &lt;= score &lt; A</code>), and the number of students whose score is <strong>grater than or eqaul to </strong><code>A</code> (<code>score &gt;= A</code>).</p><p>Now, given the scores of each student, and different <code>[B, A]</code> intervals, please help TAs do the statistics.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+The first line is an integer N (N < 1024), indicating the number of students.
+The following N lines indicates the score of each student.
+The next line is an integer T, indicating the number of different [B, A] intervals.
+And the following T lines contain 2 integers, which indicates the value of B and A (B ≤ A).
+<p></p>
+<h3>Output</h3>
+For each [B, A] interval, print out 3 interger, which represents the number of students whose score is lower than B (score < B) , the number of students whose score is grater than or equal to B but lower than A (B <= score < A), and the number of students whose score is grater than or eqaul to A (score >= A), respectively.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+10
+100
+90
+80
+70
+60
+50
+40
+30
+20
+10
+3
+60 90
+45 65
+20 80
+
+</pre>
+<h4>Output</h4>
+<pre>
+5 3 2
+4 2 4
+1 6 3
+
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+5
+19
+13
+0
+25
+4
+1
+9 79
+
+</pre>
+<h4>Output</h4>
+<pre>
+2 3 0
+
+</pre>
+</div>

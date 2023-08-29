@@ -1,0 +1,43 @@
+<h2>IPv4</h2>
+<h3>Description</h3>
+<div>
+<p><strong>網際網路通訊協定第四版 (Internet Protocol version 4, IPv4)</strong>，是網際網路發展過程中第一個被廣泛佈署與使用的通訊協定。IPv4 定義了網路上的裝置如何傳遞資料給彼此，是串起整個網路世界最重要的一套協定。</p><p>就像郵差要送信到你家時，必須事先知道你家的地址一樣，網際網路上的資料在不同電腦之間傳輸時，也必須要知道送信人跟收信人彼此的地址是多少。根據 IPv4 的規範，每一台要連上網路的裝置都必須要有一個獨一無二的地址，稱作 <strong>IP 位址</strong>。IP 位址的長度為 <strong>32 位元 (bits)</strong>，可以表示成一個 <strong>8 位數的十六進制數字</strong>。但是為了人類閱讀方便，我們通常會把這 32 個位元看成 <strong>4 個位元組 (bytes)</strong>，再把每一個位元組用十進制表示，變成<strong>點分十進制</strong>的格式。例如：每台電腦都有的本機環回位址為：</p><pre><code>01111111 00000000 00000000 00000001 (7F000001)</code></pre><p>但我們通常不這樣寫，我們習慣寫成：</p><pre><code>127.0.0.1</code></pre><p>因為 <code>01111111</code> 的十進制表示法是 <code>127</code>，<code>00000000</code> 是 <code>0</code>，<code>00000001</code> 則是 <code>1</code>，因此 <code>01111111 00000000 00000000 00000001</code> 才會被寫成 <code>127.0.0.1</code>。</p><p>現在，給你一個十六進制表示法的 IP 位址，請你將它轉換成我們習慣的點分十進制表示法。</p><p></p><p><strong>Internet Protocol version 4 (IPv4)</strong> is one of the most important protocols connecting the whole cyber world. It defines a set of rules of how computers on the Internet communicate with each other.</p><p>Just like a mailman needs to know the address of your house to deliver your mail, computers on the Internet need to know the address of others so they can transmit data. According to IPv4, every computer that want to connect to other computers requires an unique address, as known as <strong>IP address</strong>. An IP address is <strong>a 32 bits data</strong>, which can be represented in <strong>an 8 digit hexadecimal number</strong>. But for better human reliability, they are most often written in <strong>dot-decimal notation</strong>, which can be obtained by separating the 32 bits address into <strong>4 octets (bytes)</strong>, converting each octet to a decimal number, and concatenating these decimal numbers with periods. For example, the localhost of a computer is:</p><pre><code>01111111 00000000 00000000 00000001 (7F000001)</code></pre><p>But it is more common to write it as</p><pre><code>127.0.0.1</code></pre><p>Since <code>01111111</code> is <code>127</code> in decimal, <code>00000000</code> is <code>0</code>, and <code>00000001</code> is <code>1</code>, the address <code>01111111 00000000 00000000 00000001</code> can be written as <code>127.0.0.1</code>.</p><p>Now, given an IP address in hexadecimal format, please convert them into the dot-decimal notation.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+一個 8 位數的十六進制數字。
+An 8 digit hexadecimal number.
+<p></p>
+<h3>Output</h3>
+一個以點分十進制表示的 IP 位址。
+An IP address in dot-decimal notation.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+7f000001
+</pre>
+<h4>Output</h4>
+<pre>
+127.0.0.1
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+c0a8d097
+</pre>
+<h4>Output</h4>
+<pre>
+192.168.208.151
+</pre>
+</div>

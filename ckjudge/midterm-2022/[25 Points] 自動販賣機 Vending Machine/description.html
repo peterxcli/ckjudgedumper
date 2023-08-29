@@ -1,0 +1,91 @@
+<h2>[25 Points] 自動販賣機 Vending Machine</h2>
+<h3>Description</h3>
+<div>
+<pre><code>===========================================
+++++++++Cheng Kung Vending Machine+++++++++
+===========================================
+$10 -&gt;  1  2  3  4  5  6  7  8  9 10 &lt;- $10
+$20 -&gt; 11 12 13 14 15 16 17 18 19 20 &lt;- $20
+$30 -&gt; 21 22 23 24 25 26 27 28 29 30 &lt;- $30
+===========================================
+---------------enter here--&gt;&gt;---[No.%%%]---
+--------------press button-&gt;&gt;-[1|2|3|4|5]--
+-------------_________--------[6|7|8|9|0]--
+-take it--&gt;&gt;|         |------insert-&gt;&gt;-||--
+-from here--|_{|tea|]_|------refund-&gt;&gt;-[]--
+===========================================</code></pre><p></p><p>今天成功工廠生產了一台全新的投幣式自動販賣機，但自動販賣機需要程式才能運行。成功工廠的老闆知道你是一位優秀工程師，所以請你完成這台自動販賣機的程式，這樣才能把販賣機賣出去，成功發大財。</p><p></p><ul><li><p>老闆告訴你有關的販賣機的設定條件如下：</p></li></ul><ol><li><p>有 <strong>30 個編號</strong>，每個編號的庫存在<strong>初始狀態時都是 10 個</strong></p></li><li><p><strong>第一排</strong>：鋁箔包飲料，編號是 <strong>1~10</strong>，售價皆為 <strong>10 元</strong></p></li><li><p><strong>第二排</strong>：鐵鋁罐飲料，編號是 <strong>11~20</strong>，售價皆為 <strong>20 元</strong></p></li><li><p><strong>第三排</strong>：寶特瓶飲料，編號是 <strong>21~30</strong>，售價皆為 <strong>30 元</strong></p></li><li><p>如果目前顧客購買時，該編號的<strong>數量不足，須將剩下的賣出，但不可以超賣</strong>（意即當飲料庫存數量最低為 0不可為負，而為 0 時也就無法再賣出了，當然也就無法再賺錢）</p></li></ol><p></p><ul><li><p>販賣機的服務流程如下：</p></li></ul><ol><li><p>得知目前顧客數量</p></li><li><p>每位顧客皆輸入一種想要的飲料編號及數量</p></li><li><p>服務完所有顧客後，印出目前所有項目的庫存數量（每排需分別印出）</p></li><li><p>計算總共賺了多少錢</p></li></ol><p><strong>（列印格式請參考範例）</strong></p><p></p><p>注意：沒有奇怪的例外情況，像是吃錢或是突然給出更多的飲料。</p><p></p><p>Today, Cheng Kung Factory has produced a new vending machine with coins, but the vending machine needs a program to run. The boss of Cheng Kung Factory knows that you are an excellent engineer, so he asks you to finish the program of this vending machine so that he can sell it and succeed in making a big fortune.</p><p></p><ul><li><p>The boss tells you that the vending machine is set up with the following conditions.</p></li></ul><ol><li><p>There are <strong>30 numbers (items)</strong>, and <strong>each number is 10 when the stock is in its initial state</strong></p></li><li><p><strong>First row</strong>: Tetra Pak (retort pouch), <strong>numbered 1-10, all priced at $10</strong></p></li><li><p><strong>Second row</strong>: Tin and aluminum cans, <strong>numbered 11-20, all priced at $20</strong></p></li><li><p><strong>Third row</strong>: PET bottles, <strong>numbered 21-30, all priced at $30</strong></p></li><li><p>If there is <strong>not enough quantity of that number</strong> when the current customer buying, <strong>you have to sell the rest, but you can't oversell</strong> ( i.e. when the minimum quantity of beverage stock is 0, it can't be negative, and when it is 0, you can't sell it again, so you can't earn anymore)</p></li></ol><p></p><ul><li><p>The service processes of the vending machine are as follows.</p></li></ul><ol><li><p>Know the current number of customers</p></li><li><p>Each customer enters the number and quantity of the desired beverage</p></li><li><p>After serving all customers, print out the number of items currently in stock (each row needs to be printed out separately)</p></li><li><p>Calculate the total amount of money earned</p></li></ol><p><strong>(Please refer to the examples for printing format)</strong></p><p></p><p>Note: There are no strange exceptions, such as stealing money or suddenly giving out more drinks.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+第一列為一個整數 n，範圍 0~100，代表顧客的數量。
+第二列開始為每個顧客想要的飲料編號與數量，變數間以一個空白隔開，共有 n 行。編號的範圍為 1~30，數量的範圍為 0~10。
+
+The first row is an integer n, ranging from 0 to 100, representing the number of customers.
+The second row starts with the number and quantity of drinks each customer wants, separated by a blank space, with n rows. The number range is from 1 to 30 and the quantity range is from 0 to 10.
+
+<p></p>
+<h3>Output</h3>
+第一至三列分別印出販賣機第一排、第二排、第三排中，每個編號的剩餘數量（各編號的剩餘數量間以一個空白隔開）。
+第四列計算所得 (Earned: $) 為多少（冒號與錢字號間有一個空白；錢字號後不須空白，直接接數字）。
+每列間以一個換行隔開。
+
+Columns 1st to 3rd print the remaining quantity of each number in the 1st, 2nd and 3rd rows of the vending machine (separated by a space between the remaining quantity of each number).
+Column 4th calculates the amount earned (Earned: $) (there is a space between the colon and the dollar sign; the dollar sign is not followed by a space, but directly by the number). 
+Each column is separated by a newline.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+3
+1 5
+15 3
+30 2
+
+</pre>
+<h4>Output</h4>
+<pre>
+5 10 10 10 10 10 10 10 10 10 
+10 10 10 10 7 10 10 10 10 10
+10 10 10 10 10 10 10 10 10 8
+Earned: $170
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+0
+</pre>
+<h4>Output</h4>
+<pre>
+10 10 10 10 10 10 10 10 10 10 
+10 10 10 10 10 10 10 10 10 10
+10 10 10 10 10 10 10 10 10 10
+Earned: $0
+</pre>
+</div>
+<div>
+<h3>Sample3</h3>
+<h4>Input</h4>
+<pre>
+2
+1 5
+1 10
+
+</pre>
+<h4>Output</h4>
+<pre>
+0 10 10 10 10 10 10 10 10 10 
+10 10 10 10 10 10 10 10 10 10
+10 10 10 10 10 10 10 10 10 10
+Earned: $100
+</pre>
+</div>

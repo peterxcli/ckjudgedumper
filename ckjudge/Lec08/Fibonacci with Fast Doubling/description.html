@@ -1,0 +1,63 @@
+<h2>Fibonacci with Fast Doubling</h2>
+<h3>Description</h3>
+<div>
+<p>We have learned how to calculate the Fibonacci sequence with recursive technique, but there are disadvantages while calculating the sequence with the orginal definition of Fibonacci: <code>fib(k) = fib(k - 1) + fib(k - 2)</code>. Firstly, it takes long time to get the result with large <code>k</code>. Secondly, there are lots of numbers being recalculated.</p><p>To avoid such disadvantages, a technique called fast doubling was introduced to calculate Fibonacci sequence. As the name of the technique implies, there exists a recursive formula to get <code>fib(2k)</code> and <code>fib(2k + 1)</code> from <code>fib(k)</code> and <code>fib(k + 1)</code>, here are the formula:</p><pre><code>fib(2k) = fib(k) * [2 * fib(k + 1) - fib(k)]
+fib(2k + 1) = fib(k) * fib(k) + fib(k + 1) * fib(k + 1)
+
+where fib(1) = fib(2) = 1</code></pre><p>With the formula, the <code>fib(k)</code> could be calculated instantly as well as occupies little amount of memory. with the following loader code, please implement the function <code>fib_fast_doubling()</code>.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+An integer k with in range 1 ~ 93.
+<p></p>
+<h3>Output</h3>
+The value of fib(k).
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include <&zwj;stdio.h>
+
+typedef unsigned long long uint64_t;
+
+void fib_fast_doubling(unsigned k, uint64_t *f2k, uint64_t *f2k1);
+
+int main()
+{
+    unsigned k;
+    scanf("%u", &k);
+
+    uint64_t f2k, f2k1;
+    fib_fast_doubling(k / 2, &f2k, &f2k1);
+
+    printf("%llu", (k & 0x1) ? f2k1 : f2k);
+
+    return 0;
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+2
+</pre>
+<h4>Output</h4>
+<pre>
+1
+
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+9
+</pre>
+<h4>Output</h4>
+<pre>
+34
+
+</pre>
+</div>

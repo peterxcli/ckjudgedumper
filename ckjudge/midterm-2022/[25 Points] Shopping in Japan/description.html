@@ -1,0 +1,43 @@
+<h2>[25 Points] Shopping in Japan</h2>
+<h3>Description</h3>
+<div>
+<p>日幣好便宜啊，好想飛到日本買買買買買買（以下略）</p><p></p><p>在日本購物時，我們所使用的幣種是日幣。我們可以在銀行當中用新臺幣購買日幣，購買的價格會由當下<strong>日幣對新臺幣的匯率</strong>決定，其計算公式為：</p><pre><code>日幣金額 * 日幣對新臺幣匯率 = 新臺幣金額</code></pre><p>舉例來說：當日幣對新臺幣匯率是 0.3025 時，若我想要購買日幣 10000 元，那我就必須支付 10000 * 0.3025 = 新臺幣 3025 元。</p><p></p><p>而在日本國內，所有商品都會被課徵消費稅。在購買物品時除了支付物品本身的價值之外，還需要再另外支付稅金給日本政府，所需要支付的稅額由當下的<strong>消費稅率</strong>所決定。商品在被課徵消費稅之前的價格稱作未稅價（稅前價），課徵消費稅之後的總價叫作含稅價（稅後價），其轉換公式為：</p><pre><code>含稅價 = 未稅價 * (1 + 消費稅率)</code></pre><p>舉例來說：當消費稅率是 5% 時，若一瓶礦泉水未稅價是日幣 100 元，那麼含稅價就是 100 * (1 + 5%) = 日幣 105 元。</p><p></p><p>2019 年 8 月 9 號時，日幣對新臺幣的匯率達到了近五年來的高點 0.2966，當時日本國內的消費稅率還只有 8%。到今天 2022 年 11 月 3 日，日幣對新臺幣的匯率是 0.2178，但日本國內的消費稅已經變成了 10% 。<strong>已知外國人在日本國內單筆消費未稅價若超過 5000 日元，可以免計消費稅</strong>，請問購買一樣未稅價 <code>x</code> 日元的物品，現在買比起在 2019 年的時候買還要便宜了多少新臺幣呢？</p><p></p><p><strong>注意</strong>：日幣跟新臺幣最小的單位都是 1 元，因此在計算價格時必須四捨五入。你可以使用 &lt;math.h&gt; 當中的 <code>lround()</code> 函式。</p><p></p><p>Oh gosh, the price of Japanese Yen is sooooo low. Gotta fly to Japan for a shopping spree!</p><p></p><p>The official currency of Japan is Japanese Yen (yen). In Taiwan, you can buy yen with New Taiwan Dollars (NTD) at banks. The price of yen is determined by the <strong>Japanese Yen to New Taiwan Dollar exchange rate</strong> at the time. The conversion is as follows:</p><pre><code>price of yen * exchange rate = price of NTD</code></pre><p>For example: when the exchange rate is 0.3025, if you want to buy JPY ¥10000, then you need to spend 10000 * 0.3025 = NTD $3025.</p><p></p><p>When you go shopping in Japan, all goods and services are subject to consumption tax. When purchasing items, in addition to paying the value of the item itself, you need to pay the Japanese government additional taxes. The amount of taxes you need to pay is determined by the <strong>consumption tax rate</strong>. The relation of the price before tax and the price after tax is as follows:</p><pre><code>price after tax = price before tax * (1 + tax rate)</code></pre><p>For example: when the tax rate is 5%, if the price before tax of a bottled water is JPY ¥100, then the price after tax is 100 * (1 + 5%) = JPY ¥105.</p><p></p><p>For the past 5 years, the highest Japanese Yen to New Taiwan Dollar exchange rate occured at 2019/08/09, the exchange rate at that day was 0.2966. At the time, the consumption tax rate in Japan was 8%. Recently, yen price keeps falling. The exchange rate came to 0.2178 at 2022/11/03, but the consumption tax rate has raised to 10%. <strong>A good news is,</strong> <strong>for foreigners, purchases over 5000 yen (before tax) are Tax-Free. That is, if the price before tax is greater than 5000 yen for a purchase, than you don't need to pay for the taxes for this purchase.</strong> With these information, if one want to buy a item whose price before tax in yen is <code>x</code>, and he/she is paying with NTD, how much cheaper is it if he/she buy it at 2022 rather than in 2019?</p><p></p><p><strong>Note:</strong> The currency units of both yen and NTD is 1 (i.e. no such thing that is JPY ¥100.5 or NTD $39.99). Therefore, you need to round the prices to the nearest tenth when calculating. You can use the <code>lround()</code> function defined in &lt;math.h&gt;.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+一個整數 `x`，代表商品的日幣未稅價。 1 <= x <= 10000。
+One integer `x` representing the price before tax in yen, where 1 <= x <= 10000.
+<p></p>
+<h3>Output</h3>
+一個正整數，代表兩個時間點的新台幣價差。
+One positive integer representing the price difference in New Taiwan dollar.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+34
+</pre>
+<h4>Output</h4>
+<pre>
+3
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+6602
+</pre>
+<h4>Output</h4>
+<pre>
+520
+</pre>
+</div>

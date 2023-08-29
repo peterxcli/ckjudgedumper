@@ -1,0 +1,57 @@
+<h2>失控多維宇宙</h2>
+<h3>Description</h3>
+<div>
+<p>就在 V 導遊幫電資星人寫完計算最高膜拜量的程式後，今天他來到了一個宇宙折躍點前面，導遊一靠近折躍點周圍的空間開始失控，於是她發現當前所在的維度從原本的三維變成了五維，於是人腦從可以簡單思考的二維，變成能簡單思考四維的狀態。</p><p></p><p>於是 V 導遊突發奇想將原先對二維座標平面的定義做推廣，變成四維的操作，簡單來說，目前有一個指向四維陣列的指標，請寫出一個程式幫助 V 導遊將該陣列初始化。</p><p></p><p>請使用 <code>malloc</code> 實作 <code>init</code> 函式初始化四維陣列。</p><p></p><hr><p></p><p>The space around the jumping point started to go out of control, so she found that the dimension she was in had changed from the original three dimensions to five dimensions.</p><p>So V-Guide has a sudden idea to extend the original definition of two-dimensional coordinate plane to four-dimensional operation.</p><p>Please use the <code>malloc</code> <code>init</code> function to initialize the 4-dimensional array.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+有一個正整數 N（1 ≦ N ≦ 10^5），代表 Magic Number。
+<p></p>
+<h3>Output</h3>
+有一個正整數，代表 Magic Number 乘上 2 的 4 次方。
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include<&zwj;stdio.h>
+#include<&zwj;stdlib.h>
+void init(int**** ptr);
+
+int main(){
+    int ****ptr = malloc(sizeof(int***)*2);
+    init(ptr);
+    int magic_number;
+    long long magic_sum = 0;
+    scanf("%d", &magic_number);
+    for(int _ = 0; _<&zwj;2; _++)
+        for(int __ = 0; __<&zwj;2; __++)
+            for(int ___ = 0; ___<&zwj;2; ___++)
+                for(int ____ = 0; ____<&zwj;2; ____++)
+                    ptr[_][__][___][____] = magic_number, magic_sum += ptr[_][__][___][____];
+    printf("%lld", magic_sum);
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+3
+</pre>
+<h4>Output</h4>
+<pre>
+48
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+5
+</pre>
+<h4>Output</h4>
+<pre>
+80
+</pre>
+</div>

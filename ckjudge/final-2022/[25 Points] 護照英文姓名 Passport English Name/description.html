@@ -1,0 +1,93 @@
+<h2>[25 Points] 護照英文姓名 Passport English Name</h2>
+<h3>Description</h3>
+<div>
+<p>世界各地現在都邁向解封之路，不再因Covid-19，而有隔離檢疫措施。也就是說，出入境不需要隔離檢疫，也因此大家開始辦護照準備出國。</p><p>你有一個朋友恰好在旅行社工作，這位朋友在協助客戶辦護照的時候發現，大家填寫姓名的大小寫都不太一樣，名字兩個字則填空白，而不是規定的連接號 (dash)，所以想請你這位程式高手幫他解決這個問題。</p><p>這個程式要能分別輸入英文姓氏和名字，一般而言，中文姓名的姓氏是一個字或兩個字，名字也是一個字或兩個字。輸入無論大小寫都應該要轉換成規定的格式。</p><p></p><p>中文姓名翻譯成英文姓名的格式如下：</p><p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第一欄為姓 (Last name)，複姓的兩個字中間需有一個空白</p><p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一個半形逗點和一個半形空白</p><p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第二欄為名字 (First name)，一至二個字，兩個字的中間需有一個連接號 (dash)</p><p></p><p>例如：王小明的英文姓名輸入，姓和名可能輸入是 "Wang"、"Xiao Ming"；"wang"、"xiao ming"；"WANG"、"XIAO MING" 等等。正確輸出的結果，「王小明」的英文姓名是："WANG, XIAO-MING"。</p><p>如果是複姓的姓名，例如：「歐陽小美」的英文姓名是："OU YANG, XIAO-MEI"。</p><p>注意：限制輸入大小是 15 個字元，意即姓或名其中之一不可超過 15 字元，超過的話要輸出 "illegal"，且不須輸出轉換後的姓名。</p><p></p><p>All over the world is now on the road to unsealing, no longer having quarantine for Covid-19. In other words, there is no need for quarantine to enter or leave the country, so people are getting their passports ready to leave the country.</p><p>You have a friend who works in a travel agency. When he was helping his customers to apply for passports, he found that people were filling in their names in different cases and filling in the blanks instead of the dash.</p><p>The program should be able to input English last name and first name separately. In general, Chinese names have one or two characters for the last name and one or two characters for the first name. The input should be converted to the required format regardless of case.</p><p></p><p>The format for translating Chinese names into English names is as follows.</p><p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The first column is the surname (Last name), there should be a space between the two words of the compound surname</p><p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A half comma and a half blank</p><p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The second column is the First name, one to two words, with a dash in the middle of the two words.</p><p></p><p>For example: 王小明’s English name input, the last name and first name may be entered as "Wang", "Xiao Ming"; "wang", "xiao ming"; "WANG", "XIAO MING" and so on. The correct output results in the English name of "WANG, XIAO-MING".</p><p>If it is a name with a compound surname, e.g. "歐陽小美" the English name is: "OU YANG, XIAO-MEI".</p><p>Note: The input size is limited to 15 characters, i.e. one of the last name or first name cannot exceed 15 characters, if it exceeds that, "illegal" should be output, and the converted name should not be output.</p><p></p><p></p>
+</div>
+<p></p>
+<h3>Input</h3>
+第一列為中文翻譯英文的姓氏 (Last name)，例如："Wang"。
+第二列為中文翻譯英文的名字 (First name) ，例如："Xiao-Ming"。
+輸入以換行結尾，即姓氏與名字輸入後皆會按下換行。
+The first column is the Chinese translation of the English surname (Last name), for example: "Wang".
+The second column is the Chinese translation of the English name (First name), for example: "Xiao-Ming".
+The input ends with a newline, i.e., both the last name and first name will click a newline after input.
+
+
+<p></p>
+<h3>Output</h3>
+護照格式的完整英文姓名。若姓或名其中之一超過 15 字元的規定長度，則輸出 "illegal"。
+Complete English name in passport format. If either the last name or first name exceeds the required length of 15 characters, "illegal" is output.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include <&zwj;stdio.h>
+#include <&zwj;string.h>
+#include <&zwj;ctype.h>
+
+#define MAX_LEN 15
+
+void convert (char *last, char *first);
+
+int main()
+{
+    char last_name[MAX_LEN + 2];
+    char first_name[MAX_LEN + 2];
+    
+    // Enter last name
+    fgets(last_name, MAX_LEN*2 , stdin);
+    if(last_name[strlen(last_name) - 1] == '\n')
+        last_name[strlen(last_name) - 1] = '\0';
+    
+    // Enter first name
+    fgets(first_name, MAX_LEN*2, stdin);
+    if(first_name[strlen(first_name) - 1] == '\n')
+        first_name[strlen(first_name) - 1] = '\0';
+    
+    // Convert and print the name by using the function convert
+    convert(last_name, first_name);
+    
+    return 0;
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+Wo Ai
+Chengshi Sheji
+
+</pre>
+<h4>Output</h4>
+<pre>
+WO AI, CHENGSHI-SHEJI
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+ShEn haI
+GuiYU yOUGoUhaochi
+
+</pre>
+<h4>Output</h4>
+<pre>
+illegal
+</pre>
+</div>
+<div>
+<h3>Sample3</h3>
+<h4>Input</h4>
+<pre>
+WOHAO XINGFEN
+A
+
+</pre>
+<h4>Output</h4>
+<pre>
+WOHAO XINGFEN, A
+</pre>
+</div>

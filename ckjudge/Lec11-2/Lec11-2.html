@@ -1,0 +1,56 @@
+<h1>Lec11-2</h1>
+<h2>Teleportation</h2>
+<h3>Description</h3>
+<div>
+<p>Saiki is a high school student who was born with all manners of psychic abilities. One of his psychic ablility is teleportation. He can go to anywhere that he desired instantly. The secret of his ability of teleportation is that he can decompose himself into small pieces to reduce the energy and the time to move, and reconstruct himself after the movement. The scientists want to simulate Saiki's ability with a program. They have found out a way to deconstruct a given object into sixteen small parts (p1 ~ p16). And they are trying to reconstruct them back. They have found out that the reconstructed object would be two <code>unsigned long</code> (l1 and l2), with the first part (p1) occupies the most significant byte of l1, the second byte occupies the next byte, and so on. That is:</p><pre><code>|      l1       |       l2       |
+| p1 | ... | p8 | p9 | ... | p16 |</code></pre><p>And the two <code>unsigned long</code> should be xored together to get the final result. Please help the scientists finish the simulation program.</p><p><strong>Notice: </strong></p><ol><li><p><code>unsigned long</code> occupies only 32 bits on Windows system, you may use <code>unsigned long long</code> to avoid overflow.</p></li><li><p>Since the endian of the machine that runs CKJudge is little endian, you may notice that the output does not match the answer if you shift each byte manualy. If you face such problem, try to reverse the order of the bytes, that is, <code>p8</code> occupies the first byte of <code>l1</code> and so on. Reference: <a rel="noopener noreferrer nofollow" href="https://en.wikipedia.org/wiki/Endianness">https://en.wikipedia.org/wiki/Endianness</a>.</p></li></ol><p><img src="https://img.wattpad.com/af11f3c8f36ddfddadb035b0e2f3af1ec331df4c/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f4e4d6e6b4775366632774a6346513d3d2d313036333534373539372e313637623639626336653535333565313234333632323734313238302e676966"></p>
+</div>
+<p></p>
+<h3>Input</h3>
+Sixteen integers in the hexdecimal format that represents the parts of the decomposed object.
+<p></p>
+<h3>Output</h3>
+An unsigned long that represents the reconstructed object.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include <&zwj;stdio.h>
+
+unsigned long construct(unsigned char parts[16]);
+
+int main()
+{
+    unsigned char parts[16];
+    for (int i = 0; i <&zwj; 16; i++)
+        scanf("%hhx", parts + i);
+
+    printf("%lu", construct(parts));
+
+    return 0;
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+e6 57 37 5d 59 2b b6 5c 3a b3 12 19 dc 3f 7c 6c 
+</pre>
+<h4>Output</h4>
+<pre>
+3515645021722633436
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+c4 ce 03 4f f5 ba ba df 55 21 f6 0c 3e 9e 49 f4 
+</pre>
+<h4>Output</h4>
+<pre>
+3166915418408742801
+</pre>
+</div>

@@ -1,0 +1,104 @@
+<h2>[20 Points] URL Search Parameter Parser</h2>
+<h3>Description</h3>
+<div>
+<p>在 <a href="https://ckj.imslab.org/#/problems/RS_5xkB0PF-1" rel="noopener noreferrer nofollow">windows.location</a> 裡面有提及，在網址不同的位置，會處存不同的資訊，現在我們要來處理 <strong>查詢字串</strong> 欄位的資訊。</p><p>一個查詢字串是由多組的 鍵 (key) / 值 (value) 所構成。<br>在查詢字串內，鍵/值 的格式為 <code>[鍵]=[值]</code>，且每組 鍵/值 會以 <code>&amp;</code> 分開</p><p>以下範例為包含多組 鍵/值 的網址:<br><code>https://www.abc.com/photo?from=20180101&amp;to=20201231#favorite</code><br>範例中查詢字串的部分為 <code>from=20180101&amp;to=20201231</code>，<br>當中包含兩組 鍵/值，分別為</p><ul><li><p><code>from=20180101</code></p></li><li><p><code>to=20201231</code></p></li></ul><p>在同一網址中，若有重複出現相同<strong>鍵</strong>的情形，通常會只使用<strong>較早出現</strong>的 鍵/值 內容，舉例來說，在 <code>foo=bar&amp;foo=baz</code> 這個查詢字串的部分，<code>foo</code> 的值會是 <code>bar</code>。</p><p>在查詢字串的欄位中，也有機會出現只有<strong>鍵</strong>，而<strong>值</strong>則為空字串的情形，舉例來說，在 <code>foo=&amp;bar=123</code> 這個查詢字串內，<code>foo</code> 的值會是 (空字串，長度為 0)。</p><p>在網頁的應用上，查詢字串常常會被使用在想要向伺服器要求特定資料時，如以下的網址：<br><code>http://www.abc.com/profile?userid=10</code><br>在這裡，可以猜測使用者試圖使用這個網址獲得 <code>userid</code> 為 <code>10</code> 的使用者資料。</p><p>現在給定一串合法的網址與一個想要查詢的<strong>鍵</strong> ，請你印出相對應<strong>值</strong>的內容，若想要查詢的<strong>鍵</strong>不存在，請印出 <code>404 Not Found</code>。</p><p>網址的格式為：<code>通訊協定://主機名稱[:通訊埠][/所在路徑][?查詢字串][#識別符號]</code>，其中 <code>[]</code> 中為可省略之元素，即不一定會出現。</p><hr><p>As mentioned in <a href="http://127.0.0.1/?bar=123&amp;zoo=456" rel="noopener noreferrer nofollow">windows.location</a>, there are different information stored in different position of url. Now we are going to parse the content of <strong>search</strong> section, which is also known as <strong>query string</strong>.</p><p>A <strong>search</strong> part is composed of key/value pairs. The format of each pair is <code>[key]=[value]</code> and separated by <code>&amp;</code>.</p><p>Following is an example url that contains multiple key/value pairs.<br><code>https://www.abc.com/photo?from=20180101&amp;to=20201231#favorite</code><br>The search part of the url is <code>from=20180101&amp;to=20201231</code> that includes two pairs of key/value:</p><ul><li><p><code>from=20180101</code></p></li><li><p><code>to=20201231</code></p></li></ul><p>If there is duplicated key, the first key/value pair of the key should be kept. For instance, if we search <code>foo</code> with in <code>foo=bar&amp;foo=baz</code>, the result will be <code>bar</code>.</p><p>It is possible that the <code>value</code> field is empty. Take <code>foo=&amp;bar=123</code> as example, the value of <code>foo</code> will be (empty string).</p><p>A common application of the search part of a url is for querying specific data. For example, with the following url:<br><code>http://www.abc.com/profile?userid=10</code><br>We may assume the profile of the user with <code>userid</code> is <code>10</code> will be returned from the host <code>www.abc.com</code>.</p><p>Please print the corresponding key/value pair of the given key from the provided url. If the required key does not exist, <code>404 Not Found</code> should be printed.</p><p>The format of the url is: <code>portocol://host[:port][/pathname][?search][#hash]</code>, where the components enclosed by <code>[]</code> are optional, that is, may not be provided in the url.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+第一個字串代表輸入的 URL，長度介於 10 ~ 2048 個字元，並且使用換行符號結尾
+第二個字串代表指定的 key，長度介於 1 ~ 100 個字元
+
+The first string indicates url, which is composed of 10-2048 characters.
+The second string indicates key, which is composed of 1-100 characters.
+<p></p>
+<h3>Output</h3>
+若在 url 中有找到對應的 鍵/值，依照格式印出 鍵/值
+格式為 key:[key], value:[value]
+若沒有找到，則印出 404 Not Found
+
+If the key can be found in url, print key/value with following format:
+“key:[key], value[value]”
+Otherwise, print “404 Not Found”.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+#include <&zwj;stdio.h>
+#include <&zwj;stdlib.h>
+#include <&zwj;string.h>
+
+#define URL_MAX 2048
+#define KEY_MAX 100
+
+typedef struct search_s {
+    char *key;
+    char *value;
+} search_t;
+
+search_t *get_param_by_key(char *url, char *key);
+
+int main ()
+{
+    char url[URL_MAX + 1], key[KEY_MAX + 1];
+
+    fgets(url, URL_MAX, stdin);
+    scanf("%s", key );
+
+    search_t  *param = get_param_by_key (url, key);
+
+    if (param)
+        printf("key: %s, value: %s", param->key, param->value);
+    else
+        printf("404 Not Found");
+}
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+https://web.ncku.edu.tw/index.php?Lang=zh-tw
+language
+</pre>
+<h4>Output</h4>
+<pre>
+404 Not Found
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+http://test.com/?pet=cat&pet=dog&userid=1
+pet
+</pre>
+<h4>Output</h4>
+<pre>
+key: pet, value: cat
+</pre>
+</div>
+<div>
+<h3>Sample3</h3>
+<h4>Input</h4>
+<pre>
+https://test/haha/
+key
+</pre>
+<h4>Output</h4>
+<pre>
+404 Not Found
+</pre>
+</div>
+<div>
+<h3>Sample4</h3>
+<h4>Input</h4>
+<pre>
+http://127.0.0.1/?meow=zoo&bar=123&zoo=456#shop
+zoo
+</pre>
+<h4>Output</h4>
+<pre>
+key: zoo, value: 456
+</pre>
+</div>

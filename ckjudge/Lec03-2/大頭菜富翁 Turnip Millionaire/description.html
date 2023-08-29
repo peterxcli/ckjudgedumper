@@ -1,0 +1,45 @@
+<h2>大頭菜富翁 Turnip Millionaire</h2>
+<h3>Description</h3>
+<div>
+<p>阿玄是一個大頭菜操盤手。在他的島上，大頭菜的價格是每天浮動的，若能夠低買高賣，就能夠從中獲利。他每天都會紀錄大頭菜的菜價，希望可以從菜價的波動中找出財富密碼。但是阿玄紀錄了上百天的大頭菜價格，卻不知道怎麼利用這些資料，於是他找上了你，一位大（頭菜）數據專家。</p><p></p><p>根據你多年研究大頭菜...額我是說，大數據的經驗，你知道<strong>循環神經網路 (Recurrent Neural Network, RNN)</strong> 是一種很適合用來預測菜價的深度學習模型。RNN 擅長處理序列型資料，我們可以透過輸入一系列的數字當做訓練資料，訓練一個 RNN 去預測這一系列數字的下一個數字是什麼。具體而言，假設時間點 <code>t</code> 時的<strong>輸入資料</strong>為 <code>x{t}</code>，下一個時間點（也就是時間點 <code>t + 1</code>）的<strong>輸出資料</strong>為 <code>y{t+1}</code>，RNN 可以透過下列的計算，利用 <code>x{t}</code> 算出 <code>y{t+1}</code>：</p><pre><code>h{t+1} = w * x{t} + u * h{t} + b
+y{t+1} = f(u' * h{t+1} + b')</code></pre><p>其中，<code>h{t}</code> 是第 <code>t</code> 時間點的<strong>隱藏狀態 (hidden state)</strong>，RNN 透過這個機制來「記憶」序列資料中的歷史資訊，並在未來時間點利用這個資訊做預測或判斷；<code>w</code>, <code>u</code>, <code>b</code>, <code>u'</code>, <code>b'</code> 是模型的參數，一旦模型訓練完成，這些參數就是一個常數；<code>f()</code> 則是<strong>激勵函數 (activation function)</strong>，用來調整訓練過程中的輸出數值範圍。</p><p>請特別留意 <code>x</code>, <code>y</code>, <code>h</code> 三者的下標：我們會利用第 <code>t</code> 時間點的輸入資料 <code>x{t}</code> 和第 <code>t</code> 時間點的隱藏狀態 <code>h{t}</code>，去算出第 <code>t + 1</code> 時間點的隱藏狀態 <code>h{t+1}</code>，再利用 <code>h{t+1}</code> 去算出第 <code>t + 1</code> 時間點的輸出資料 <code>y_{t+1}</code>。而通常第 <code>0</code> 個時間點時的隱藏狀態 <code>h{0}</code> 會被設定為 <code>0</code>。</p><p></p><p>你利用阿玄給你的資料訓練了一個 RNN，發現模型的參數是 <code>(w, u, b, u', b') = (0.9, 0.1, -51, -0.98, 153)</code>，而你使用的激勵函數是恆等函式 <code>f(x) = x</code>，也就是輸入等於輸出的函式。每個禮拜天阿玄都會告訴你當天的大頭菜價格，他想要知道接下來五天的大頭菜價格，用來決定要怎麼操盤。你能幫助阿玄變成大頭菜富翁嗎？</p><p></p><p>Xuan is a turnip trader. On her island, the price of turnips fluctuate everyday. If she can buy them at low price and sell them at high price, she can make millions. Everyday she records the price of turnips, and she wish she can find the key to success from the trunip price fluctuations. Now she has hundreds of turnip price record, but she doesn't know how to utilize it. So she found you, a big (turnip price) data expert.</p><p></p><p>Since you have been studying on big data for several years, you know that <strong>Recurrent Neural Network (RNN)</strong> is a good deep learning model for predicting turnip price. RNN is good at handling sequential data. We can use a sequence of number as training data, and train a RNN to predict the next number of the sequence. Specifically, suppose that the <strong>input data</strong> at time <code>t</code> is <code>x{t}</code>, and the <strong>output data</strong> at next tick (i.e. time <code>t + 1</code>) is <code>y{t+1}</code>. A RNN can utilize <code>x{t}</code> to calculate <code>y{t+1}</code> by the following formula:</p><pre><code>h{t+1} = w * x{t} + u * h{t} + b
+y{t+1} = f(u' * h{t+1} + b')</code></pre><p>Here, <code>h{t}</code> is the <strong>hidden state</strong> of the model at time <code>t</code>. RNN uses this mechanism to "remembers" historical information, and then utilizes it to predict the future. <code>w</code>, <code>u</code>, <code>b</code>, <code>u'</code>, <code>b'</code> are the parameters of the model. Once the model training process is finished, these parameters are constants. And <code>f()</code> is called <strong>activation function</strong>. It is used to adjust the numerical range of output value in the training process.</p><p>Please be careful with the subscription of <code>x</code>, <code>y</code> and <code>h</code>: we use the input data at time <code>t</code> (<code>x{t}</code>) and the hidden state at time <code>t</code> (<code>h{t}</code>) to calculate the hidden state of time <code>t + 1</code> (<code>h{t+1}</code>), and then use <code>h{t+1}</code> to calculate the output of time <code>t + 1</code> (<code>y{t+1}</code>). And at time <code>0</code>, the hidden state <code>h{0}</code> is usually set to <code>0</code>.</p><p></p><p>You used the data Xuan gave to you to train a RNN, and you found that the parameters of the model are <code>(w, u, b, u', b') = (0.9, 0.1, -51, -0.98, 153)</code>, with the activation function being identity function <code>f(x) = x</code>. Every Sunday, Xuan comes to tell you the price of turnips on that day, and she want to know the turnips price on the following 5 days, so she can determine when to trade them. Can you help Xuan become a turnip millionaire?</p>
+</div>
+<p></p>
+<h3>Input</h3>
+一個浮點數 x，代表禮拜天的大頭菜價格。 50 <= x <= 150.
+A floating point number x representing the turnips price on Sunday. 50 <= x <= 150.
+<p></p>
+<h3>Output</h3>
+五個浮點數，輸出到小數點後 1 位，代表接下來五天的大頭菜價格。每個數字之間用一個空白隔開。
+Five floating point numbers printed to 1 decimal place, representing the turnips price on the following 5 days. Separate each number with a space.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+97.5
+</pre>
+<h4>Output</h4>
+<pre>
+117.0 96.2 112.5 99.7 109.7 
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+115.5
+</pre>
+<h4>Output</h4>
+<pre>
+101.1 108.6 102.7 107.3 103.7 
+</pre>
+</div>

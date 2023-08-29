@@ -1,0 +1,87 @@
+<h1>Lec02-2</h1>
+<h2>Calculating EAN check digit</h2>
+<h3>Description</h3>
+<div>
+<p>European countries use a 12-digit code called European Article Number (EAN) for each product. Each EAN ends with a check digit, which is calculated by the following rules:</p><p></p><ol><li><p>Sum up the second, fourth, sixth, eighth, tenth, and twelfth digits, and put the result in <code>a</code>.</p></li><li><p>Sum up the first, third, fifth, seventh, ninth, and eleventh digits, and put the result in <code>b</code>.</p></li><li><p>Multiply <code>a</code> by 3 and add it to <code>b</code>, and put the result in <code>x</code>.</p></li><li><p>Subtract 1 from <code>x</code>, and put the result in <code>y</code>.</p></li><li><p>Compute the remainder of <code>y</code> divided by 10, and put the result in <code>z</code>.</p></li><li><p>Subtract <code>z</code> from 9.</p></li></ol><p></p><p>Write a program that reads the first 12 digits of an EAN, and then displays the calculated check digit.</p>
+</div>
+<p></p>
+<h3>Input</h3>
+A number with 12 digits.
+<p></p>
+<h3>Output</h3>
+An 1-digit check digit.
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+452167458643
+</pre>
+<h4>Output</h4>
+<pre>
+1
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+158245984678
+</pre>
+<h4>Output</h4>
+<pre>
+5
+</pre>
+</div>
+<h2>Grouping</h2>
+<h3>Description</h3>
+<div>
+<p>Ms. Mary has been struggling with grouping lately. She taught many classes, each with a different number of students. For different classes, she wants to assign different numbers of students to all groups. Ms. Mary wants an excellent PD1 student to write a program to solve her problem.</p><p>She wants to enter the class size and group size into the program. After dividing the students evenly into groups (i.e., each group has the same number of students), she wants to know how many students are in each group and how many students are left behind.</p><p>瑪莉老師最近正在煩惱如何分組，她任教很多班級，每個班級的人數都不盡相同。而不同課程的組別，則想分配不同人數。瑪莉老師希望 PD1 的學生寫一個程式來解決她的困擾。</p><p>她希望輸入班級人數和分組數量到程式中。將學生平分到每組的情況下（即每組人數皆相同），知道每組會有多少學生，以及有幾個學生沒有被分到組。</p>
+</div>
+<p></p>
+<h3>Input</h3>
+Two integers i and j are separated by a space.
+Integer i indicates how many students in a class, with range 50-200, and integer j indicates how many groups to divide in this class, with range 2-25.
+兩個整數，i 和 j 之間有一個空格。
+i 表示有多少學生，範圍是 50-200；j 表示要分幾組，範圍是 2-25。
+<p></p>
+<h3>Output</h3>
+The program prints the number of students in each group, and the number of remaining students without groups, separated by a blank space.
+程式會印出每組的人數，以及沒有組別的人數，兩者以空白分隔。
+<p></p>
+<h3>Loader Code</h3>
+<div>
+<p>Your code will be judge using this program:</p>
+</div>
+<pre>
+
+</pre>
+<div>
+<h3>Sample1</h3>
+<h4>Input</h4>
+<pre>
+200 25
+</pre>
+<h4>Output</h4>
+<pre>
+8 0
+</pre>
+</div>
+<div>
+<h3>Sample2</h3>
+<h4>Input</h4>
+<pre>
+50 3
+</pre>
+<h4>Output</h4>
+<pre>
+16 2
+</pre>
+</div>
